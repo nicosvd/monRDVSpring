@@ -2,42 +2,29 @@ package fr.sopra.formation.monRdv.beans;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Version;
+//import javax.persistence.Entity;
+//import javax.persistence.FetchType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToOne;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
+//import javax.persistence.Version;
 
-@Entity
 public class Creneaux {
-	@Id
-	@GeneratedValue
 	private Integer id;
-	@Version
 	private int version;
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	private int tempsCreneau;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "adresse_id")
 	private Adresse adresse;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "praticien_id")
 	private Praticien praticien;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "rdv_id")
 	private RDV rdv;
 
 	public Creneaux() {
-		super();
 	}
 
 	public Creneaux(Date date, int tempsCreneau) {
-		super();
 		this.date = date;
 		this.tempsCreneau = tempsCreneau;
 	}

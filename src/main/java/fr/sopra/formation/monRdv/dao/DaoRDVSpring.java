@@ -10,9 +10,8 @@ import fr.sopra.formation.monRdv.App;
 import fr.sopra.formation.monRdv.beans.RDV;
 import fr.sopra.formation.monRdv.dao.IDaoRDV;
 
-public class DaoRDVJpa implements IDaoRDV {
+public class DaoRDVSpring implements IDaoRDV {
 
-	@Override
 	public List<RDV> findAll() {
 		List<RDV> liste = null;
 		EntityManager em = null;
@@ -41,7 +40,6 @@ public class DaoRDVJpa implements IDaoRDV {
 		return liste;
 	}
 
-	@Override
 	public RDV find(Integer id) {
 		RDV obj = null;
 		EntityManager em = null;
@@ -69,7 +67,6 @@ public class DaoRDVJpa implements IDaoRDV {
 		return obj;
 	}
 
-	@Override
 	public RDV save(RDV obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -96,7 +93,6 @@ public class DaoRDVJpa implements IDaoRDV {
 		return obj;
 	}
 
-	@Override
 	public void delete(RDV obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;

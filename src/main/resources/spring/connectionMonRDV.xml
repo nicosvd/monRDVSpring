@@ -17,8 +17,8 @@
 		<property name="password" value="root"></property>
 	</bean>
 
-	<bean id="livreDao"
-		class="fr.sopra.formation.DataSourceConfiguration.dao.LivreDAOImpl"
+	<bean id="rdv"
+		class="fr.sopra.formation.monRdv.dao.DaoRDVSpring"
 		autowire="byName">
 	</bean>
 

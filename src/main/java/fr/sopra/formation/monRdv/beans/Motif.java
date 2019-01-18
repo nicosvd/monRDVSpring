@@ -3,31 +3,24 @@ package fr.sopra.formation.monRdv.beans;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Version;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.persistence.OneToMany;
+//import javax.persistence.Version;
 
-@Entity
 public class Motif {
-	@Id
-	@GeneratedValue
 	private Integer id;
-	@Version
 	private int version;
 	private String motif;
 	private Integer prix;
 	private Integer duree;
-	@OneToMany(mappedBy = "motif")
 	private List<PraticienMotif> praticiens = new ArrayList<>();
 
 	public Motif() {
-		super();
 	}
 
 	public Motif(String motif, Integer prix, Integer duree) {
-		super();
 		this.motif = motif;
 		this.prix = prix;
 		this.duree = duree;

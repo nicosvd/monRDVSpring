@@ -1,7 +1,11 @@
 package fr.sopra.formation.monRdv;
 
 import javax.persistence.EntityManagerFactory;
+
 import javax.persistence.Persistence;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.sopra.formation.monRdv.dao.IDaoAdresse;
 import fr.sopra.formation.monRdv.dao.IDaoCreneaux;
@@ -14,35 +18,57 @@ import fr.sopra.formation.monRdv.dao.IDaoPraticienSpecialite;
 import fr.sopra.formation.monRdv.dao.IDaoRDV;
 import fr.sopra.formation.monRdv.dao.IDaoSpecialite;
 import fr.sopra.formation.monRdv.dao.IDaoUtilisateur;
-import monRdv.dao.jpa.DaoAdresseJpa;
-import monRdv.dao.jpa.DaoCreneauxJpa;
-import monRdv.dao.jpa.DaoMotifJpa;
-import monRdv.dao.jpa.DaoPatientJpa;
-import monRdv.dao.jpa.DaoPraticienAdresseJpa;
-import monRdv.dao.jpa.DaoPraticienJpa;
-import monRdv.dao.jpa.DaoPraticienMotifJpa;
-import monRdv.dao.jpa.DaoPraticienSpecialiteJpa;
-import monRdv.dao.jpa.DaoRDVJpa;
-import monRdv.dao.jpa.DaoSpecialiteJpa;
-import monRdv.dao.jpa.DaoUtilisateurJpa;
+
+//import monRdv.dao.jpa.DaoAdresseJpa;
+//import monRdv.dao.jpa.DaoCreneauxJpa;
+//import monRdv.dao.jpa.DaoMotifJpa;
+//import monRdv.dao.jpa.DaoPatientJpa;
+//import monRdv.dao.jpa.DaoPraticienAdresseJpa;
+//import monRdv.dao.jpa.DaoPraticienJpa;
+//import monRdv.dao.jpa.DaoPraticienMotifJpa;
+//import monRdv.dao.jpa.DaoPraticienSpecialiteJpa;
+//import monRdv.dao.jpa.DaoRDVJpa;
+//import monRdv.dao.jpa.DaoSpecialiteJpa;
+//import monRdv.dao.jpa.DaoUtilisateurJpa;
+//
+//package fr.sopra.formation.DataSourceConfiguration;
+//
+//import org.springframework.context.ApplicationContext;
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
+//
+//import fr.sopra.formation.DataSourceConfiguration.beans.Livre;
+//import fr.sopra.formation.DataSourceConfiguration.dao.LivreDAO;
 
 public class App {
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring/connection.xml");
+		// Livre livre = new Livre();
+		// LivreDAO bookDAO = (LivreDAO) context.getBean("livreDao");
+		// int rows = bookDAO.AddLivre(livre);
+		// System.out.println(rows);
+	}
 
-	private static App instance = null;
+}
 
-	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("formation");
-	private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
-	private final IDaoCreneaux daoCreneaux = new DaoCreneauxJpa();
-	private final IDaoMotif daoMotif = new DaoMotifJpa();
-	private final IDaoPatient daoPatient = new DaoPatientJpa();
-	private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
-	private final IDaoPraticienAdresse daoPraticienAdresse = new DaoPraticienAdresseJpa();
-	private final IDaoPraticienMotif daoPraticienMotif = new DaoPraticienMotifJpa();
-	private final IDaoPraticienSpecialite daoPraticienSpecialite = new DaoPraticienSpecialiteJpa();
-	private final IDaoRDV daoRDV = new DaoRDVJpa();
-	private final IDaoSpecialite daoSpecialite = new DaoSpecialiteJpa();
-	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
-
+	 private static App instance = null;
+	
+	 private final EntityManagerFactory emf =
+	 Persistence.createEntityManagerFactory("formation");
+	 private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
+	 private final IDaoCreneaux daoCreneaux = new DaoCreneauxJpa();
+	 private final IDaoMotif daoMotif = new DaoMotifJpa();
+	 private final IDaoPatient daoPatient = new DaoPatientJpa();
+	 private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
+	 private final IDaoPraticienAdresse daoPraticienAdresse = new
+	 DaoPraticienAdresseJpa();
+	 private final IDaoPraticienMotif daoPraticienMotif = new
+	 DaoPraticienMotifJpa();
+	 private final IDaoPraticienSpecialite daoPraticienSpecialite = new
+	 DaoPraticienSpecialiteJpa();
+	 private final IDaoRDV daoRDV = new DaoRDVJpa();
+	 private final IDaoSpecialite daoSpecialite = new DaoSpecialiteJpa();
+	 private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
+	
 	private App() {
 	}
 
@@ -102,4 +128,3 @@ public class App {
 		return daoUtilisateur;
 	}
 
-}

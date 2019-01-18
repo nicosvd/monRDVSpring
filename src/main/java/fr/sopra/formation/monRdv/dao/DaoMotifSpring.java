@@ -1,24 +1,19 @@
 package fr.sopra.formation.monRdv.dao;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
 import fr.sopra.formation.monRdv.App;
-import fr.sopra.formation.monRdv.beans.Creneaux;
-import fr.sopra.formation.monRdv.beans.Praticien;
-import fr.sopra.formation.monRdv.dao.IDaoCreneaux;
+import fr.sopra.formation.monRdv.beans.Motif;
+import fr.sopra.formation.monRdv.dao.IDaoMotif;
 
-public class DaoCreneauxJpa implements IDaoCreneaux {
+public class DaoMotifSpring implements IDaoMotif {
 
-	@Override
-	public List<Creneaux> findAll() {
-		List<Creneaux> liste = null;
+	public List<Motif> findAll() {
+		List<Motif> liste = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
 		try {
@@ -26,7 +21,7 @@ public class DaoCreneauxJpa implements IDaoCreneaux {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Creneaux> query = em.createQuery("from Creneaux", Creneaux.class);
+			TypedQuery<Motif> query = em.createQuery("from Motif", Motif.class);
 
 			liste = query.getResultList();
 
@@ -45,47 +40,8 @@ public class DaoCreneauxJpa implements IDaoCreneaux {
 		return liste;
 	}
 
-	@Override
-	public List<Creneaux> findCreneauxByPraticienAndDateTime(Praticien praticien, Date dtRdv, int duree) {
-		List<Creneaux> liste = null;
-		EntityManager em = null;
-		EntityTransaction tx = null;
-		try {
-			em = App.getInstance().getEmf().createEntityManager();
-			tx = em.getTransaction();
-			tx.begin();
-
-			Calendar dtRdvEnd = Calendar.getInstance();
-			dtRdvEnd.setTime(dtRdv);
-			dtRdvEnd.add(Calendar.MINUTE, duree);
-
-			TypedQuery<Creneaux> query = em.createQuery(
-					"select c from Creneaux c where c.praticien = :praticien and c.date >= :dtRdvStart and c.date < :dtRdvEnd",
-					Creneaux.class);
-			query.setParameter("praticien", praticien);
-			query.setParameter("dtRdvStart", dtRdv, TemporalType.TIMESTAMP);
-			query.setParameter("dtRdvEnd", dtRdvEnd.getTime(), TemporalType.TIMESTAMP);
-
-			liste = query.getResultList();
-
-			tx.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) {
-				tx.rollback();
-			}
-		} finally {
-			if (em != null) {
-				em.close();
-			}
-		}
-
-		return liste;
-	}
-
-	@Override
-	public Creneaux find(Integer id) {
-		Creneaux obj = null;
+	public Motif find(Integer id) {
+		Motif obj = null;
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -94,7 +50,7 @@ public class DaoCreneauxJpa implements IDaoCreneaux {
 			tx = em.getTransaction();
 			tx.begin();
 
-			obj = em.find(Creneaux.class, id);
+			obj = em.find(Motif.class, id);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -111,8 +67,7 @@ public class DaoCreneauxJpa implements IDaoCreneaux {
 		return obj;
 	}
 
-	@Override
-	public Creneaux save(Creneaux obj) {
+	public Motif save(Motif obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -138,8 +93,7 @@ public class DaoCreneauxJpa implements IDaoCreneaux {
 		return obj;
 	}
 
-	@Override
-	public void delete(Creneaux obj) {
+	public void delete(Motif obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
