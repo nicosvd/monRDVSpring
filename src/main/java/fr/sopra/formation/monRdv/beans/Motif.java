@@ -10,27 +10,32 @@ import java.util.List;
 //import javax.persistence.Version;
 
 public class Motif {
-	private Integer id;
+	private int id;
 	private int version;
 	private String motif;
-	private Integer prix;
-	private Integer duree;
-	private List<PraticienMotif> praticiens = new ArrayList<>();
+	private int prix;
+	private int duree;
+//	private List<PraticienMotif> praticiens = new ArrayList<>();
 
 	public Motif() {
+		id = 21;
+		version = 1;
+		motif = "Consultation";
+		prix = 20;
+		duree = 30;
 	}
 
-	public Motif(String motif, Integer prix, Integer duree) {
+	public Motif(String motif, int prix, int duree) {
 		this.motif = motif;
 		this.prix = prix;
 		this.duree = duree;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -50,28 +55,28 @@ public class Motif {
 		this.motif = motif;
 	}
 
-	public Integer getPrix() {
+	public int getPrix() {
 		return prix;
 	}
 
-	public void setPrix(Integer prix) {
+	public void setPrix(int prix) {
 		this.prix = prix;
 	}
 
-	public Integer getDuree() {
+	public int getDuree() {
 		return duree;
 	}
 
-	public void setDuree(Integer duree) {
+	public void setDuree(int duree) {
 		this.duree = duree;
 	}
 
-	public List<PraticienMotif> getPraticiens() {
-		return praticiens;
-	}
-
-	public void setPraticiens(List<PraticienMotif> praticiens) {
-		this.praticiens = praticiens;
-	}
+//	public List<PraticienMotif> getPraticiens() {
+//		return praticiens;
+//	}
+//
+//	public void setPraticiens(List<PraticienMotif> praticiens) {
+//		this.praticiens = praticiens;
+//	}
 
 }

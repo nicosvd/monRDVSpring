@@ -12,13 +12,23 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/livredb"></property>
+			value="jdbc:mysql://localhost:3306/monrdvspring"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
 	</bean>
 
-	<bean id="rdv"
+	<bean id="rdvidao"
 		class="fr.sopra.formation.monRdv.dao.DaoRDVSpring"
+		autowire="byName">
+	</bean>
+	
+	<bean id="motifidao"
+		class="fr.sopra.formation.monRdv.dao.DaoMotifSpring"
+		autowire="byName">
+	</bean>
+	
+	<bean id="creneauxidao"
+		class="fr.sopra.formation.monRdv.dao.DaoCreneauxSpring"
 		autowire="byName">
 	</bean>
 

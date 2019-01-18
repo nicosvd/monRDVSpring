@@ -13,21 +13,24 @@ import java.util.Date;
 //import javax.persistence.Version;
 
 public class Creneaux {
-	private Integer id;
+	private int id;
 	private int version;
-	private Date date;
+//	private Date date;
 	private int tempsCreneau;
-	private Adresse adresse;
-	private Praticien praticien;
-	private RDV rdv;
+//	private Adresse adresse;
+//  private Praticien praticien;
+//	private RDV rdv;
 
 	public Creneaux() {
+		id = 22;
+		version = 3;
+		tempsCreneau = 15;
 	}
 
-	public Creneaux(Date date, int tempsCreneau) {
-		this.date = date;
-		this.tempsCreneau = tempsCreneau;
-	}
+//	public Creneaux(Date date, int tempsCreneau) {
+//		this.date = date;
+//		this.tempsCreneau = tempsCreneau;
+//	}
 
 	public Integer getId() {
 		return id;
@@ -45,13 +48,13 @@ public class Creneaux {
 		this.version = version;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
+//	public Date getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 
 	public int getTempsCreneau() {
 		return tempsCreneau;
@@ -61,28 +64,28 @@ public class Creneaux {
 		this.tempsCreneau = tempsCreneau;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
-	}
+//	public Adresse getAdresse() {
+//		return adresse;
+//	}
+//
+//	public void setAdresse(Adresse adresse) {
+//		this.adresse = adresse;
+//	}
 
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
+//	public Praticien getPraticien() {
+//		return praticien;
+//	}
+//
+//	public void setPraticien(Praticien praticien) {
+//		this.praticien = praticien;
+//	}
 
-	public Praticien getPraticien() {
-		return praticien;
-	}
-
-	public void setPraticien(Praticien praticien) {
-		this.praticien = praticien;
-	}
-
-	public RDV getRdv() {
-		return rdv;
-	}
-
-	public void setRdv(RDV rdv) {
-		this.rdv = rdv;
-	}
+//	public RDV getRdv() {
+//		return rdv;
+//	}
+//
+//	public void setRdv(RDV rdv) {
+//		this.rdv = rdv;
+//	}
 
 }

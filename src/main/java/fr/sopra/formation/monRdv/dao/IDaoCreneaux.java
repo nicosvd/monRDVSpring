@@ -4,8 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import fr.sopra.formation.monRdv.beans.Creneaux;
-import fr.sopra.formation.monRdv.beans.Praticien;
+//import fr.sopra.formation.monRdv.beans.Praticien;
+import fr.sopra.formation.monRdv.beans.Motif;
 
-public interface IDaoCreneaux extends IDao<Creneaux, Integer>{
-	List<Creneaux> findCreneauxByPraticienAndDateTime(Praticien praticien, Date dtRdv, int duree);
+public interface IDaoCreneaux {
+	public int AddCreneaux(Creneaux creneaux);
+
+	// List<Creneaux> findCreneauxByPraticienAndDateTime(Praticien praticien, Date
+	// dtRdv, int duree);
 }
